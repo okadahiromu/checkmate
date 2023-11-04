@@ -1,14 +1,46 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up for CheckMate</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <img src="https://example.com/your-image.jpg" alt="CheckMate Logo">
+    <h1><span class="app-name">CheckMate</span> Sign up</h1>
+    <p>Create your account</p>
+  </header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name" %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
-  <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+  <div class="container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <p>Already have an account? <%= link_to "Sign in", new_user_session_path %></p>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
+</html>

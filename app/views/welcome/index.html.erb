@@ -1,24 +1,45 @@
-<h1>Welcome to CheckMate</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to CheckMate</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <img src="https://example.com/your-image.jpg" alt="CheckMate Logo">
+    <h1>Welcome to <span class="app-name">CheckMate</span></h1>
+    <p>Your personal checklist and alert system</p>
+    <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+  </header>
 
-<p>This is your personal checklist and alert system.</p>
+  <div class="container">
+    <% if user_signed_in? %>
+      <section class="user-content">
+        <h2>Your Lists</h2>
+        <ul class="user-lists">
+          <% current_user.lists.each do |list| %>
+            <li><%= link_to list.name, list %></li>
+          <% end %>
+        </ul>
 
-<% if user_signed_in? %>
-  <!-- ユーザーがログインしている場合のコンテンツ -->
-  <h2>Your Lists</h2>
-  <ul>
-    <% current_user.lists.each do |list| %>
-      <li><%= link_to list.name, list %></li>
+        <h2>Your Alert Emails</h2>
+        <ul class="user-emails">
+          <% current_user.sent_alert_emails.each do |email| %>
+            <li><%= link_to email.title, email %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% else %>
+      <section class="signup-section">
+        <p><%= link_to 'サインイン', new_user_session_path %></p>
+        <p><%= link_to '新規登録', new_user_registration_path %></p>
+      </section>
     <% end %>
-  </ul>
+  </div>
 
-  <h2>Your Alert Emails</h2>
-  <ul>
-    <% current_user.sent_alert_emails.each do |email| %>
-      <li><%= link_to email.title, email %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <!-- ユーザーがログインしていない場合のコンテンツ -->
-  <p><%= link_to 'Sign in', new_user_session_path %> to start using CheckMate.</p>
-  <p><%= link_to 'Sign up', new_user_registration_path %> if you don't have an account yet.</p>
-<% end %>
+  <%= link_to "新しいリストを作成", new_list_path, class: "btn btn-primary" %>
+  <%= link_to "新しいアラートメールを作成", new_alert_email_path, class: "btn btn-primary" %>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<div class="container text-center">
+<h1>New Alert Email</h1>
+<%= form_with(model: @alert_email, url: alert_emails_path, local: true) do |form| %>
+  <% if @alert_email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alert_email.errors.count, "error") %> prohibited this alert email from being saved:</h2>
+      <ul>
+        <% @alert_email.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "作成" %>
+  </div>
+  
+  <%= link_to "一覧", alert_emails_path, class: "btn btn-secondary btn-lg" %>
+</div>
+<% end %>
