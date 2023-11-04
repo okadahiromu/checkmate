@@ -1,0 +1,19 @@
+<h1>新しいアイテムを作成</h1>
+
+<%= form_for(@item) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit 'アイテムを作成' %>
+  </div>
+<% end %>
+
+<%= link_to '一覧に戻る', list_items_path(@list) %>

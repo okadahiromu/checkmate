@@ -1,0 +1,19 @@
+<h1>アイテムを編集</h1>
+
+<%= form_for([@list, @item]) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit 'アイテムを更新' %>
+  </div>
+<% end %>
+
+<%= link_to '詳細を表示', list_item_path(@list, @item) %>

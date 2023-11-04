@@ -1,0 +1,15 @@
+<h1>アイテム一覧</h1>
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <label>
+        <%= check_box_tag "item_ids[]", item.id, item.checked %>
+        <%= item.name %>
+        <%= item.description %>
+      </label>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to '新しいアイテムを作成', new_item_path %>
