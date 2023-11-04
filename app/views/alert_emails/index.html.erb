@@ -1,0 +1,21 @@
+<h1>アラートメール一覧</h1>
+
+<h2>送信済みアラートメール</h2>
+<ul>
+  <% @sent_alert_emails.each do |alert_email| %>
+    <li>
+      <%= link_to alert_email.title, alert_email %>
+      (送信先: <%= alert_email.recipient.username %>)
+    </li>
+  <% end %>
+</ul>
+
+<h2>受信したアラートメール</h2>
+<ul>
+  <% @received_alert_emails.each do |alert_email| %>
+    <li>
+      <%= link_to alert_email.title, alert_email %>
+      (送信元: <%= alert_email.sender.username %>)
+    </li>
+  <% end %>
+</ul>
