@@ -1,2 +1,24 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to CheckMate</h1>
+
+<p>This is your personal checklist and alert system.</p>
+
+<% if user_signed_in? %>
+  <!-- ユーザーがログインしている場合のコンテンツ -->
+  <h2>Your Lists</h2>
+  <ul>
+    <% current_user.lists.each do |list| %>
+      <li><%= link_to list.name, list %></li>
+    <% end %>
+  </ul>
+
+  <h2>Your Alert Emails</h2>
+  <ul>
+    <% current_user.sent_alert_emails.each do |email| %>
+      <li><%= link_to email.title, email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <!-- ユーザーがログインしていない場合のコンテンツ -->
+  <p><%= link_to 'Sign in', new_user_session_path %> to start using CheckMate.</p>
+  <p><%= link_to 'Sign up', new_user_registration_path %> if you don't have an account yet.</p>
+<% end %>
