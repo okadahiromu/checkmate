@@ -15,11 +15,14 @@ class AlertEmailsController < ApplicationController
   end
 
   def create
+   
     @alert_email = current_user.sent_alert_emails.build(alert_email_params)
     if @alert_email.save
+      send_alert_email(@alert_email)
       redirect_to alert_emails_path, notice: 'アラートメールを送信しました'
     else
       render :new
+      
     end
   end
 
@@ -46,5 +49,9 @@ class AlertEmailsController < ApplicationController
 
   def alert_email_params
     params.require(:alert_email).permit(:title, :body, :recipient_id, :status)
+  end
+
+  def send_alert_email(alert_email)
+    alert_email.deliver_now
   end
 end
