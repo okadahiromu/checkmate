@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.lists.find(params[:id])
+    @items = @list.items
   end
 
   def new
@@ -18,7 +19,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to @list, notice: 'リストを作成しました'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,8 +38,11 @@ class ListsController < ApplicationController
 
   def destroy
     @list = current_user.lists.find(params[:id])
-    @list.destroy
-    redirect_to lists_path, notice: 'リストを削除しました'
+    if @list.destroy
+      redirect_to root_path, notice: 'アイテムを削除しました'
+    else
+      redirect_to list_items_path(@list), alert: 'アイテムの削除に失敗しました'
+    end
   end
 
   private
