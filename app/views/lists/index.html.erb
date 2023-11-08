@@ -1,9 +1,0 @@
-<h1>リスト一覧</h1>
-
-<% @lists.each do |list| %>
-  <div>
-    <%= link_to list.name, list %>
-  </div>
-<% end %>
-
-<%= link_to '新しいリストを作成', new_list_path %>

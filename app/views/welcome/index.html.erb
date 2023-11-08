@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to CheckMate</title>
+  <title>Welcome</title>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="background-image: url('<%= asset_path('') %>');">
   <header>
-    <img src="https://example.com/your-image.jpg" alt="CheckMate Logo">
-    <h1>Welcome to <span class="app-name">CheckMate</span></h1>
-    <p>Your personal checklist and alert system</p>
-    <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+  <% if user_signed_in? %>
+    <h1>Welcome  <%= current_user.name %><span class="app-name"></span></h1>
+    <p></p>
+    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btn-primary" %>
   </header>
-
-  <div class="container">
-    <% if user_signed_in? %>
+  <div class="container" style="background-image: url('<%= asset_path('') %>');">
+    <%# <% if user_signed_in? %> 
       <section class="user-content">
-        <h2>Your Lists</h2>
+        <h2><%= current_user.name %>のリスト</h2>
         <ul class="user-lists">
           <% current_user.lists.each do |list| %>
             <li><%= link_to list.name, list %></li>
           <% end %>
         </ul>
-
-        <h2>Your Alert Emails</h2>
+        
+        <h2>メール</h2>
         <ul class="user-emails">
           <% current_user.sent_alert_emails.each do |email| %>
             <li><%= link_to email.title, email %></li>
@@ -33,12 +32,11 @@
       </section>
     <% else %>
       <section class="signup-section">
-        <p><%= link_to 'サインイン', new_user_session_path %></p>
-        <p><%= link_to '新規登録', new_user_registration_path %></p>
+        <p><%= link_to 'サインイン', new_user_session_path, class: "btn btn-primary" %></p>
+        <p><%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary" %></p>
       </section>
     <% end %>
   </div>
-
   <%= link_to "新しいリストを作成", new_list_path, class: "btn btn-primary" %>
   <%= link_to "新しいアラートメールを作成", new_alert_email_path, class: "btn btn-primary" %>
 </body>

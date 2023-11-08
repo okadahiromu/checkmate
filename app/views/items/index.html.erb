@@ -1,15 +1,30 @@
 <h1>アイテム一覧</h1>
 
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <label>
-        <%= check_box_tag "item_ids[]", item.id, item.checked %>
-        <%= item.name %>
-        <%= item.description %>
-      </label>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to '新しいアイテムを作成', new_item_path %>
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th></th>
+      <th>チェック</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td>
+          <%= form_for item, url: list_item_path(@list, item), method: :patch do |f| %>
+            <%= f.check_box :checked, class: 'item-checkbox' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to '削除する', list_item_path(@list, item), data: { turbo_method: :delete }, class: "btn btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '作成', new_list_item_path(@list), class: "btn btn-primary" %>
+<%= link_to "ホーム", root_path, class: "btn btn-primary" %>

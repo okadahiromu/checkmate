@@ -12,8 +12,10 @@
   </div>
 
   <div>
-    <%= f.submit 'リストを更新' %>
+    <%= f.submit '更新', class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<%= link_to '詳細を表示', list_path(@list) %>
+<%= link_to '削除', list_path(@list), data: { turbo_method: :delete }, class: "btn btn-primary" %>
+
+<%= link_to "ホーム", root_path, class: "btn btn-primary" %>

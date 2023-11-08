@@ -1,19 +1,19 @@
 <h1>新しいリストを作成</h1>
-
-<%= form_for(@list) do |f| %>
+<%= form_with(model: [@list], local: true) do |form| %>
+<%= render 'shared/error_messages', model: form.object %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= form.label "名前" %>
+    <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= form.label "説明" %>
+    <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= f.submit 'リストを作成' %>
+    <%= form.submit '作成', class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<%= link_to '一覧に戻る', lists_path %>
+<%= link_to "ホーム", root_path, class: "btn btn-primary" %>
