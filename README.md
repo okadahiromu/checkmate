@@ -1,24 +1,56 @@
-# README
+## アプリケーション名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CheckMate
 
-Things you may want to cover:
+## アプリケーション概要
 
-* Ruby version
+CheckMateは、忘れ物とToDoリストの管理をサポートし、アラートメール機能を提供するアプリケーションです。
 
-* System dependencies
+## URL
 
-* Configuration
+デプロイ済みのURL: [こちらにURLを記載]
 
-* Database creation
+## テスト用アカウント
 
-* Database initialization
+- ユーザー名: [テスト用ユーザー名]
+- パスワード: [テスト用パスワード]
+- Basic認証情報: [Basic認証のID/Pass]
 
-* How to run the test suite
+## 利用方法
 
-* Services (job queues, cache servers, search engines, etc.)
+1. ユーザーアカウントを作成またはログインします。
+2. リストを作成し、忘れ物やToDoアイテムを追加します。
+3. アイテムをチェックして完了状態を管理します。
+4. アラートメール機能を使用してリマインダーを設定します。
 
-* Deployment instructions
+## アプリケーションを作成した背景
 
-* ...
+CheckMateは、日常生活でのタスク管理や忘れ物の防止に役立つアプリケーションです。
+
+## 実装した機能についての画像やGIFおよびその説明
+
+[ここに実装した機能の画像やGIFを挿入し、それぞれの特徴や操作方法を説明します]
+
+## 実装予定の機能
+
+- ユーザー機能
+- チェック機能
+- メール機能
+
+## データベース設計
+
+[ここにER図を挿入]
+
+## 画面遷移図
+
+[ここに画面遷移図を挿入]
+
+## 開発環境
+
+- Ruby on Rails
+- PostgreSQL
+- HTML, CSS, JavaScript
+
+## ローカルでの動作方法
+
+1. リポジトリをクローンします。
