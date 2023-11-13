@@ -74,3 +74,5 @@ end
 gem 'pry-rails'
 
 gem 'devise'
+
+gem 'dotenv-rails'
