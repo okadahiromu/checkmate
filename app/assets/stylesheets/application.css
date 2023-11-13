@@ -1,16 +1,20 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #fdf6f6;
   margin: 0;
   padding: 0;
+  background-size: cover;
+  text-align: center;
   
 }
 
 header {
-  background-color: #007bff;
+  background-color: #a4c8f6;
   color: #fff;
   text-align: center;
   padding: 20px 0;
+  transform: translate;
+  background-color: rgba(105, 170, 255, 0.5);
 }
 
 .app-name {
@@ -22,13 +26,20 @@ header {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-size: contain;
+  background-position: center center;
 }
 
 .user-content {
   margin-top: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
 }
 
 h2 {
@@ -75,7 +86,7 @@ input[type="password"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   border-radius: 5px;
 }
 
@@ -85,7 +96,7 @@ input[type="password"] {
 
 .actions input[type="submit"] {
   background-color: #007bff;
-  color: #fff;
+  color: #f3f3f3;
   padding: 10px 20px;
   font-size: 18px;
   border: none;
@@ -125,7 +136,7 @@ input[type="password"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid #000000;
   border-radius: 5px;
 }
 
@@ -135,7 +146,7 @@ input[type="password"] {
 
 .actions input[type="submit"] {
   background-color: #007bff;
-  color: #fff;
+  color: #e4e4e4;
   padding: 10px 20px;
   font-size: 18px;
   border: none;
@@ -153,10 +164,187 @@ input[type="password"] {
 }
 
 .container a {
-  color: #007bff;
+  color: #151617;
   text-decoration: none;
 }
 
 .container a:hover {
   text-decoration: underline;
+}
+
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fefefe;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #f83333;
+}
+
+
+
+
+
+
+.td {
+  font-size: larger;
+  color: #595959;
+  transition: transform 0.3s ease; /* アニメーションの追加 */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+tr, td {
+  padding: 10px;
+  text-align: left;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* アニメーションの追加 */
+}
+
+tr {
+  background-color: #b6e0f5;
+  color: #010101;
+  font-size: 30px;
+}
+
+tr:nth-child(even) {
+  background-color: #f7e2ea;
+}
+
+/* ホバーアニメーションの追加 */
+tr:hover {background-color: #5ebdf8;
+}
+
+/* ホバー時のテキストアニメーションの追加 */
+tr:hover .td {
+  transform: scale(1.1);
+}
+
+/* ホバーアニメーションの追加 */
+tr:hover {
+  background-color: #f7f7f7;
+}
+
+/* チェックボックススタイル */
+.item-checkbox {
+  margin: 0;
+  accent-color: red;
+  inline-size: 4rem;
+  block-size: 4rem;
+}
+
+/* リンクスタイル */
+a {
+  text-decoration: none;
+}
+
+.ttt{
+  color: #419efb;
+  background-color: rgb(255, 255, 255);
+}
+
+
+ul.sample1{
+  counter-reset:li;
+  font: 30px/1.6 'arial narrow', sans-serif;
+  list-style: none;
+  padding:0;
+}
+ul.sample1 li{
+  position: relative;
+  font-weight: bold;
+  line-height: 50px;
+  margin: 10px 0;
+  padding-left: 40px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+ul.sample1 li:nth-child(4n+1){
+  border:dashed 1px #FFA79F;
+}
+ul.sample1 li:nth-child(4n+2){
+  border:dashed 1px #fbaf5d;
+}
+ul.sample1 li:nth-child(4n+3){
+  border:dashed 1px #9FCDFF;
+}
+ul.sample1 li:nth-child(4n+4){
+  border:dashed 1px #AFEBB6;
+}
+ul.sample1 li:before{
+  counter-increment: li;
+  content: counter(li);
+  position: absolute;
+  left: -1px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+ul.sample1 li:nth-child(4n+1):before{
+  background: #FFA79F;
+}
+ul.sample1 li:nth-child(4n+2):before{
+  background: #fbaf5d;
+}
+ul.sample1 li:nth-child(4n+3):before{
+  background: #9FCDFF;
+}
+ul.sample1 li:nth-child(4n+4):before{
+  background: #AFEBB6;
+}
+ul.sample1 li:hover{
+  color:#fff;
+  overflow: hidden;
+  z-index: 1;
+}
+ul.sample1 li:nth-child(4n+1):hover{
+  background: #FFA79F;
+}
+ul.sample1 li:nth-child(4n+1):hover:before{
+  background: #fff;
+  color: #FFA79F;
+}
+ul.sample1 li:nth-child(4n+2):hover{
+  background: #fbaf5d;
+}
+ul.sample1 li:nth-child(4n+2):hover:before{
+  background: #fff;
+  color: #fbaf5d;
+}
+ul.sample1 li:nth-child(4n+3):hover{
+  background: #9FCDFF;
+}
+ul.sample1 li:nth-child(4n+3):hover:before{
+  background: #fff;
+  color: #9FCDFF;
+}
+ul.sample1 li:nth-child(4n+4):hover{
+  background: #AFEBB6;
+}
+ul.sample1 li:nth-child(4n+4):hover:before{
+  background: #fff;
+  color: #AFEBB6;
 }

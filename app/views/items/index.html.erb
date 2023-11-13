@@ -5,7 +5,7 @@
     <tr>
       <th>名前</th>
       <th></th>
-      <th>チェック</th>
+      <th></th>
       <th>操作</th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
         <td><%= item.description %></td>
         <td>
           <%= form_for item, url: list_item_path(@list, item), method: :patch do |f| %>
-            <%= f.check_box :checked, class: 'item-checkbox' %>
+          <%= f.check_box :checked, class: 'item-checkbox' %> 
           <% end %>
         </td>
         <td>
@@ -28,3 +28,4 @@
 </table>
 <%= link_to '作成', new_list_item_path(@list), class: "btn btn-primary" %>
 <%= link_to "ホーム", root_path, class: "btn btn-primary" %>
+<%= link_to '完了', list_path(@list), class: "btn btn-primary" %>
