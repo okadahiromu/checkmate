@@ -1,11 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fdf6f6;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
-  background-size: cover;
   text-align: center;
-  
 }
 
 header {
@@ -15,6 +13,7 @@ header {
   padding: 20px 0;
   transform: translate;
   background-color: rgba(105, 170, 255, 0.5);
+  background-size: cover;
 }
 
 .app-name {
@@ -56,37 +55,13 @@ h2 {
   margin: 5px 0;
 }
 
-.signup-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.signup-section a {
-  color: #007bff;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.signup-section a:hover {
-  text-decoration: underline;
-}
-
-.field {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   border-radius: 5px;
 }
 
@@ -120,10 +95,6 @@ input[type="password"] {
 
 .container a:hover {
   text-decoration: underline;
-}
-
-.field {
-  margin-bottom: 20px;
 }
 
 label {
@@ -187,11 +158,13 @@ input[type="password"] {
 }
 
 .btn:hover {
-  background-color: #f83333;
+  background-color: #add1f1;
 }
 
 
-
+li{
+  list-style-type: none; /* 点を非表示にする */
+}
 
 
 
