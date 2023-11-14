@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :lists do
     resources :items
   end
-  resources :alert_emails, only: [:new, :create, :index]
+  resources :alert_emails, only: [:new, :create, :index, :show]
 end

@@ -4,7 +4,7 @@
 <ul>
   <% @sent_alert_emails.each do |alert_email| %>
     <li>
-      <%= link_to alert_email.title, alert_email %>
+      <%= link_to alert_email.title, alert_email %> 
       (送信先: <%= alert_email.recipient.username %>)
     </li>
   <% end %>
@@ -19,3 +19,4 @@
     </li>
   <% end %>
 </ul>
+<%= link_to "ホーム", root_path, class: "btn btn-primary" %>

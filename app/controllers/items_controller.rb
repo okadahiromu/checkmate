@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
     @item = current_list.items.find(params[:id])
     if @item.update(checked: !@item.checked)
       if all_items_checked? || overdue_condition_met?
-        # すべてのアイテムがチェック済みの場合または時間的な条件が満たされた場合に送信
-        AlertMailer.send_alert(@item).deliver_now
+        alert_email = create_alert_email(@item)
+        AlertMailer.send_alert(alert_email).deliver_now
       end
   
       redirect_to list_items_path(current_list)
@@ -69,5 +69,17 @@ class ItemsController < ApplicationController
     # 未完了のチェック項目が存在し、現在時刻が朝の9時より前の場合にtrueを返す
     current_time = Time.zone.now
     current_list.items.where(checked: false).exists? && current_time < morning_nine
+  end
+
+  def create_alert_email(item)
+    recipient_id = item.list.user_id
+    sender_id = current_user.id
+  
+    AlertEmail.new(
+      title: "アイテムのアラート",
+      body: "アイテムが更新されました。\n#{item.name}: #{item.description}",
+      sender_id: sender_id,
+      recipient_id: recipient_id
+    )
   end
 end

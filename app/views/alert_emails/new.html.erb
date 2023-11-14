@@ -12,11 +12,21 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <%= form.label :recipient_id %>
+    <%= form.select :recipient_id, User.all.map { |user| [user.email, user.id] }, prompt: 'Select Recipient' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sender_id %>
+    <%= form.hidden_field :sender_id, value: current_user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit "作成" %>
   </div>
   
   <%= link_to "一覧", alert_emails_path, class: "btn btn-primary" %>
   <%= link_to "ホーム", root_path, class: "btn btn-primary" %>
+  <% end %>
 </div>
-<% end %>

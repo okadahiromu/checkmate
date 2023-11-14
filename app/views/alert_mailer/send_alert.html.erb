@@ -4,14 +4,22 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user %>様、example.comへようこそ。</h1>
-    <p>
-      example.comへのサインアップが成功しました。
-      ユーザー名は「<%= @user %>」です。<br>
-    </p>
-    <p>
-      このサイトにログインするには、<%= @url %>をクリックしてください。
-    </p>
-    <p>本サイトにユーザー登録いただきありがとうございます。</p>
+    <h1>アラートメール</h1>
+
+    <p><strong>タイトル:</strong> <%= @alert_email.title %></p>
+    <p><strong>本文:</strong> <%= @alert_email.body %></p>
+    <p><strong>送信者:</strong> <%= @alert_email.sender.username %></p>
+    <p><strong>送信先:</strong> <%= @user.username %></p>
+    <p><strong>送信日時:</strong> <%= @alert_email.sent_at.nil? ? '未送信' : @alert_email.sent_at %></p>
+    <p><strong>状態:</strong> <%= @alert_email.status %></p>
+
+    <h2>アイテム情報</h2>
+  <% if @item %>
+    <p><strong>アイテム名:</strong> <%= @item.name %></p>
+    <p><strong>アイテム説明:</strong> <%= @item.description %></p>
+    <p><strong>アイテムチェック状況:</strong> <%= @item.checked ? 'チェック済み' : '未チェック' %></p>
+  <% else %>
+    <p>アイテム情報がありません。</p>
+  <% end %>
   </body>
 </html>

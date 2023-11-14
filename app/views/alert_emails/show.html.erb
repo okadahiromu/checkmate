@@ -4,7 +4,8 @@
 <p><strong>本文:</strong> <%= @alert_email.body %></p>
 <p><strong>送信者:</strong> <%= @alert_email.sender.username %></p>
 <p><strong>送信先:</strong> <%= @alert_email.recipient.username %></p>
-<p><strong>送信日時:</strong> <%= @alert_email.sent_at %></p>
+<p><strong>送信日時:</strong> <%= @alert_email.sent_at.nil? ? '未送信' : @alert_email.sent_at %></p>
 <p><strong>状態:</strong> <%= @alert_email.status %></p>
 
 <%= link_to '一覧に戻る', alert_emails_path %>
+<%= link_to "ホーム", root_path, class: "btn btn-primary" %>
