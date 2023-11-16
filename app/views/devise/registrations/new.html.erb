@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -15,32 +16,32 @@
 
   <div class="container">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "Your Name" %>
       </div>
 
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autocomplete: "email" %>
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Your Email" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="mb-3">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Your Password" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="mb-3">
+        <%= f.label :password_confirmation, class: "form-label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
+      <div class="mb-3">
+        <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block" %>
       </div>
     <% end %>
 
-    <p>Already have an account? <%= link_to "Sign in", new_user_session_path %></p>
+    <p class="text-center">Already have an account? <%= link_to "Sign in", new_user_session_path %></p>
   </div>
 </body>
 </html>

@@ -28,7 +28,7 @@ class AlertEmailsController < ApplicationController
     if @alert_email.save
       # メール送信のロジックが成功した場合、statusを更新
       @alert_email.update(status: 'sent')
-      AlertMailer.send_alert(@alert_email).deliver_now
+      # AlertMailer.send_alert(@alert_email).deliver_now
       redirect_to alert_emails_path
     else
       render :new
