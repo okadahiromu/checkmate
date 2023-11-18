@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Welcome</title>
-  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag "welcome", media: "all" %>
   <link rel="stylesheet" href="./stylesheets/reset.css">
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<header style="background-image: url('<%= asset_path('IMG_0500.JPG') %>');">
+
+<body style="background-image: url('<%= asset_path('') %>');">
+<header style="background-image: url('<%= asset_path('IMG_0508.JPG') %>');">
   <% if user_signed_in? %>
     <h1>Welcome  <%= current_user.name %><span class="app-name"></span></h1>
     <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btn-primary" %>
-</header>
-<body style="background-image: url('<%= asset_path('') %>');">
       <div class="container" style="background-image: url('<%= asset_path('') %>');">
       <section class="user-content">
         <h2><%= current_user.name %>さんのリスト</h2>
@@ -24,13 +25,52 @@
       </section>
       <%= link_to "新しいリストを作成", new_list_path, class: "btn btn-primary" %>
       <%= link_to "新しいアラートメールを作成", new_alert_email_path, class: "btn btn-primary" %>
+  </header>
+    <section class="about-us-section">
+      <h2>当社について</h2>
+      <p>当社のユーザーに最高のエクスペリエンスを提供するためのミッションとビジョンについて学んでください。</p>
+    </section>
+  <footer>
+    <p>&copy; 2023 あなたのウェブサイト。全著作権所有。</p>
+  </footer>
   <% else %>
       <h2>Welcome</h2>
-      <section class="signup-section" >
+      <main>
+    
+      <h2>当ウェブサイトへようこそ！</h2>
+      <p>素晴らしい機能を発見し、当コミュニティに参加してください。</p>
+    
+
+    <section class="signup-section" >
         <p><%= link_to 'サインイン', new_user_session_path, class: "btn btn-primary1" %></p>
         <p><%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary2" %></p>
-      </section>
+    </section>
+
+    <section class="features-section">
+      <h2>特徴</h2>
+      <ul>
+        <li>エキサイティングな機能 1</li>
+        <li>素晴らしい機能 2</li>
+        <li>さらに発見...</li>
+        <li>さらに発見...</li>
+        <li>さらに発見...</li>
+      </ul>
+    </section>
+
+    <section class="about-us-section">
+      <h2>当社について</h2>
+      <p>当社のユーザーに最高のエクスペリエンスを提供するためのミッションとビジョンについて学んでください。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 あなたのウェブサイト。全著作権所有。</p>
+  </footer>
+
   <% end %>
       </div>
 </body>
 </html>
+
+
+
