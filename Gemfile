@@ -76,3 +76,7 @@ gem 'pry-rails'
 gem 'devise'
 
 gem 'dotenv-rails'
+
+group :production do
+  gem 'pg'
+end
