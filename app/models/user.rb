@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :received_alert_emails, class_name: 'AlertEmail', foreign_key: 'recipient_id'
 
   validates :name, presence: { message: "を入力してください" }
-  validates :email, presence: { message: "を入力してください" }, format: { with: /\A[\w+\-.]+@gmail\.com\z/, message: "@gmail.comで入力してください" } 
+  validates :email, presence: , format: { with: /\A[\w+\-.]+@gmail\.com\z/, message: "@gmail.comで入力してください" } 
   
   def username
     name || email

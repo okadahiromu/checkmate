@@ -9,13 +9,13 @@
 </head>
 <body>
   <header>
-    <img src="https://example.com/your-image.jpg" alt="CheckMate Logo">
     <h1><span class="app-name">CheckMate</span> Sign in</h1>
     <p>Log in to your account</p>
   </header>
 
   <div class="container">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Your Email" %>
